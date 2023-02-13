@@ -27,7 +27,7 @@ class StudyGroupController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('StudyGroup/create');
     }
 
     /**
@@ -38,7 +38,14 @@ class StudyGroupController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name_headman' => ['required', 'max:50'],
+            'phone_number_headman' => ['required', 'max:20'],
+            'course' => ['required', 'numeric']
+        ]);
+
+        StudyGroup::query()->create($request->all());
+        return redirect()->route('study-group.index');
     }
 
     /**

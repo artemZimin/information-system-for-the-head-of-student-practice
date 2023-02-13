@@ -12,6 +12,7 @@ export default function StudyGroupIndex({ study_groups }) {
                 course: 'Курс',
             }}
             title="Учебные группы"
+            currentRoute="study-group"
         />
     );
 }

@@ -27,7 +27,7 @@ class FacultyController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Faculty/create');
     }
 
     /**
@@ -38,7 +38,17 @@ class FacultyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'faculty_number' => ['required', 'numeric', 'unique:faculties'],
+            'name' => ['required', 'max:50'],
+            'dean_name' => ['required', 'max:50'],
+            'dean_phone_number' => ['required', 'max:20'],
+            'zup_name' => ['required', 'max:50'],
+            'zup_phone_number' => ['required', 'max:20'],
+        ]);
+
+        Faculty::query()->create($request->all());
+        return redirect()->route('faculty.index');
     }
 
     /**

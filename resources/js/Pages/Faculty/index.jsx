@@ -15,6 +15,7 @@ export default function FacultyIndex({ faculties }) {
                 zup_phone_number: 'Телефон ЗУП',
             }}
             title="Факультеты"
+            currentRoute="faculty"
         />
     );
 }

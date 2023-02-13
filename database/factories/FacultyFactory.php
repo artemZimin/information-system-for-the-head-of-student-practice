@@ -18,7 +18,7 @@ class FacultyFactory extends Factory
     {
         return [
             'faculty_number' => fake()->unique()->numberBetween(1, 1000),
-            'name' => fake()->text(50),
+            'name' => fake()->company(),
             'dean_name' => fake()->name(),
             'dean_phone_number' => fake()->phoneNumber(),
             'zup_name' => fake()->name(),
